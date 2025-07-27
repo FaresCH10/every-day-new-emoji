@@ -19,7 +19,7 @@ body {
 .time {
     font-size: 2rem;
     font-weight: bold;
-    
+
 }
 
 .container {
@@ -59,4 +59,30 @@ body {
 .container .btn-emoji:hover {
     background: #fff;
     color: black;
+}
+
+
+@media screen and (max-width: 720px) {
+    .container {
+        width: 400px;
+    }
+
+    h1 {
+        font-size:  1.4rem;
+    }
+    .emoji {
+        font-size: 10rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .container {
+        width: 250px;
+    }
+    h1 {
+        font-size: 1rem;
+    }
+    .btn-emoji {
+        width: 100px;
+    }
 }
