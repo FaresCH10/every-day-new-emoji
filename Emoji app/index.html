@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Today Emoji</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>What is your emoji for today?</h1>
+    <div class="emoji"></div>
+    <button class="btn-emoji">Get your emoji</button>
+  </div>
+  <p class="time"></p>
+
+  <script>
+    const emojis = [
+      "😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊",
+      "😋", "😎", "😍", "😘", "🥰", "😗", "😙", "🥲", "😚", "🙂",
+      "🤗", "🤩", "🤔", "🫡", "🤨", "😐", "😑", "😶", "🫥", "🙄",
+      "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "🥱", "😴",
+      "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🫤",
+      "🙃", "🫠", "🤑", "😲", "☹️", "🙁", "😖", "😞", "😟", "😤",
+      "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😮‍💨", "😰",
+      "😱", "🥵", "🥶", "😳", "🤪", "😵", "😵‍💫", "🥴", "😠", "😡",
+      "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🥳", "🥸",
+      "🥺", "🥹", "🤠", "🤡", "🤥", "🫨", "🙂‍↔️", "🙂‍↕️", "🤫", "🤭",
+      "🫢", "🫣", "🧐", "🤓", "😈", "👿"
+    ];
+
+    const emojiDiv = document.querySelector(".emoji");
+    const emojiBtn = document.querySelector(".btn-emoji");
+    const timeMessage = document.querySelector(".time");
+    let btnStatus;
+
+    if (localStorage.getItem("emoji-value")) {
+      emojiDiv.textContent = localStorage.getItem("emoji-value")
+    }
+
+    const today = new Date();
+    const hour = today.getHours();
+    const day = today.getDate();
+
+
+
+    function disable() {
+      if (localStorage.getItem("emoji-day") != day && localStorage.getItem("emoji-hours") == hour) {
+      emojiBtn.disabled = false;
+      btnStatus = 1;
+      localStorage.setItem("status", btnStatus);
+    }
+    }
+    if (localStorage.getItem("status") == 0 ) {
+      emojiBtn.disabled = true;
+      timeMessage.textContent = "Comeback tomorrow";
+
+    }
+
+ 
+      emojiBtn.addEventListener("click", () => {
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        emojiDiv.textContent = randomEmoji;
+        localStorage.setItem("emoji-value", randomEmoji);
+        localStorage.setItem("emoji-hours", hour);
+        localStorage.setItem("emoji-day", day);
+        emojiBtn.disabled = true;
+        btnStatus = 0;
+        localStorage.setItem("status", btnStatus);
+        timeMessage.textContent = "Comeback tomorrow";
+    });
+    
+
+    
+  
+
+   
+    setInterval(() => {
+      disable()
+    },1000)
+  </script>
+</body>
+</html>

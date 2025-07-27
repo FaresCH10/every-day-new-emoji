@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+ 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#07aeea,#2bf598);
+}
+
+.time {
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    background: linear-gradient(#ffddc0,#ffd5c2,#e8cec7,#cac9d0,#aec8d8,#95c9de,#82cde0);
+    border-radius: 40px;
+    padding: 20px;
+    transition: all .5s;
+}
+
+.container .btn-emoji {
+    width: 200px;
+    padding: 20px 40px;
+    border-radius: 50px;
+    border: none;
+    background: #2bf598;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.emoji {
+    font-size: 15rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.container .btn-emoji:hover {
+    background: #fff;
+    color: black;
+}
