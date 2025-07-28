@@ -45,7 +45,7 @@
 
 
     function disable() {
-      if (localStorage.getItem("emoji-day") != day && localStorage.getItem("emoji-hours") == hour) {
+      if (localStorage.getItem("emoji-day") != day && localStorage.getItem("emoji-hours") >= hour) {
       emojiBtn.disabled = false;
       btnStatus = 1;
       localStorage.setItem("status", btnStatus);
